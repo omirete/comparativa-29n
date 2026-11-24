@@ -2,6 +2,12 @@
 
 Web estática que compara, tema a tema, las propuestas de los programas electorales oficiales para las elecciones generales del 29 de noviembre de 2026. Cada propuesta enlaza a la página exacta del PDF original del que procede.
 
+- **Web:** https://omirete.github.io/comparativa-29n/
+- **Repositorio:** https://github.com/omirete/comparativa-29n
+- **Programas originales (PDF):** [programas-electorales/](https://github.com/omirete/comparativa-29n/tree/main/programas-electorales)
+- **Datos:** [data/propuestas.json](https://github.com/omirete/comparativa-29n/blob/main/data/propuestas.json)
+- **Avisar de un error:** [abrir una incidencia](https://github.com/omirete/comparativa-29n/issues/new)
+
 ## Qué incluye
 
 - **Por tema**: once temas comunes y una columna por partido; puedes elegir qué partidos comparar.
@@ -44,6 +50,11 @@ La web es estática (HTML, CSS y JavaScript sin dependencias ni compilación), a
 El archivo `.nojekyll` evita que GitHub procese el sitio con Jekyll.
 
 ## Editar o corregir una propuesta
+
+Si no quieres tocar el código, [abre una incidencia](https://github.com/omirete/comparativa-29n/issues/new) indicando partido, tema y página del PDF. En la web, cada tarjeta tiene un enlace «Avisar de un error» que abre el formulario con el partido y el tema ya rellenados.
+
+Para corregirlo tú mismo:
+
 
 Edita `data/propuestas.json` y regenera `data/propuestas.js`:
 

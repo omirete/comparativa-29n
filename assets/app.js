@@ -2,6 +2,14 @@
   'use strict';
 
   var DATA = window.PROPUESTAS;
+  var REPO = 'https://github.com/omirete/comparativa-29n';
+  // Enlace a una incidencia de GitHub con el partido y el tema ya rellenados
+  function issueUrl(p, tema) {
+    var titulo = 'Corrección: ' + p.nombre + (tema ? ' · ' + tema.nombre : '');
+    var cuerpo = 'Partido: ' + p.nombre + '\nTema: ' + (tema ? tema.nombre : '') +
+      '\nPágina del PDF: \n\nTexto actual en la web:\n\nQué dice el programa / corrección propuesta:\n';
+    return REPO + '/issues/new?title=' + encodeURIComponent(titulo) + '&body=' + encodeURIComponent(cuerpo);
+  }
   var TEMAS = [
     { id: 'economia', nombre: 'Economía e impuestos', desc: 'Impuestos, gasto público, deuda y modelo económico.' },
     { id: 'empleo', nombre: 'Empleo y salarios', desc: 'Salario mínimo, jornada, contratación, despido y autónomos.' },
@@ -116,7 +124,11 @@
         el('h3', { text: p.nombre }),
         el('p', { class: 'sub', text: (p.corto !== p.nombre ? p.corto + ' · ' : '') + '«' + p.titulo + '»' }),
         listaPropuestas(p, state.tema),
-        el('p', { class: 'src' }, [el('a', { href: p.pdf, target: '_blank', rel: 'noopener', text: 'Programa completo (PDF, ' + p.paginas + ' págs.)' })])
+        el('p', { class: 'src' }, [
+          el('a', { href: p.pdf, target: '_blank', rel: 'noopener', text: 'Programa completo (PDF, ' + p.paginas + ' págs.)' }),
+          document.createTextNode(' · '),
+          el('a', { href: issueUrl(p, t), target: '_blank', rel: 'noopener', title: 'Abre un formulario en GitHub con el partido y el tema ya rellenados', text: 'Avisar de un error' })
+        ])
       ]));
     });
     if (!grid.children.length) grid.appendChild(el('p', { class: 'hint', text: 'Selecciona al menos un partido.' }));
@@ -132,7 +144,9 @@
       el('h2', { text: p.nombre }),
       el('p', {}, [
         document.createTextNode('«' + p.titulo + '» · ' + p.paginas + ' páginas · '),
-        el('a', { href: p.pdf, target: '_blank', rel: 'noopener', text: 'Abrir el programa (PDF)' })
+        el('a', { href: p.pdf, target: '_blank', rel: 'noopener', text: 'Abrir el programa (PDF)' }),
+        document.createTextNode(' · '),
+        el('a', { href: issueUrl(p, null), target: '_blank', rel: 'noopener', text: 'Avisar de un error' })
       ])
     ]));
     TEMAS.forEach(function (t) {
@@ -224,6 +238,9 @@
 
     document.querySelectorAll('.tab').forEach(function (b) {
       b.addEventListener('click', function () { setView(b.dataset.view); });
+    });
+    document.querySelectorAll('[data-goto]').forEach(function (a) {
+      a.addEventListener('click', function (e) { e.preventDefault(); setView(a.dataset.goto); window.scrollTo(0, 0); });
     });
   }
   function buildChips() {
