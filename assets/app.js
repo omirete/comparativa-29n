@@ -5,10 +5,11 @@
   var REPO = 'https://github.com/omirete/comparativa-29n';
   // Enlace a una incidencia de GitHub con el partido y el tema ya rellenados
   function issueUrl(p, tema) {
-    var titulo = 'Corrección: ' + p.nombre + (tema ? ' · ' + tema.nombre : '');
-    var cuerpo = 'Partido: ' + p.nombre + '\nTema: ' + (tema ? tema.nombre : '') +
-      '\nPágina del PDF: \n\nTexto actual en la web:\n\nQué dice el programa / corrección propuesta:\n';
-    return REPO + '/issues/new?title=' + encodeURIComponent(titulo) + '&body=' + encodeURIComponent(cuerpo);
+    var q = 'template=correccion.yml' +
+      '&title=' + encodeURIComponent('[Corrección] ' + p.nombre + (tema ? ' · ' + tema.nombre : '')) +
+      '&partido=' + encodeURIComponent(p.nombre) +
+      (tema ? '&tema=' + encodeURIComponent(tema.nombre) : '');
+    return REPO + '/issues/new?' + q;
   }
   var TEMAS = [
     { id: 'economia', nombre: 'Economía e impuestos', desc: 'Impuestos, gasto público, deuda y modelo económico.' },

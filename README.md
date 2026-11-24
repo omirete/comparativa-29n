@@ -6,7 +6,7 @@ Web estática que compara, tema a tema, las propuestas de los programas electora
 - **Repositorio:** https://github.com/omirete/comparativa-29n
 - **Programas originales (PDF):** [programas-electorales/](https://github.com/omirete/comparativa-29n/tree/main/programas-electorales)
 - **Datos:** [data/propuestas.json](https://github.com/omirete/comparativa-29n/blob/main/data/propuestas.json)
-- **Avisar de un error:** [abrir una incidencia](https://github.com/omirete/comparativa-29n/issues/new)
+- **Avisar de un error:** [abrir una incidencia](https://github.com/omirete/comparativa-29n/issues/new?template=correccion.yml)
 
 ## Qué incluye
 
@@ -51,7 +51,7 @@ El archivo `.nojekyll` evita que GitHub procese el sitio con Jekyll.
 
 ## Editar o corregir una propuesta
 
-Si no quieres tocar el código, [abre una incidencia](https://github.com/omirete/comparativa-29n/issues/new) indicando partido, tema y página del PDF. En la web, cada tarjeta tiene un enlace «Avisar de un error» que abre el formulario con el partido y el tema ya rellenados.
+Si no quieres tocar el código, [abre el formulario de corrección](https://github.com/omirete/comparativa-29n/issues/new?template=correccion.yml), que pide partido, tema, página del PDF y texto corregido. En la web, cada tarjeta tiene un enlace «Avisar de un error» que abre el formulario con el partido y el tema ya rellenados.
 
 Para corregirlo tú mismo:
 

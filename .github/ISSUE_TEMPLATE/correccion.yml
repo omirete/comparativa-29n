@@ -1,0 +1,62 @@
+name: Corregir una propuesta
+description: Avisa de una propuesta mal resumida, con la página equivocada o que falta en la comparativa.
+title: "[Corrección] "
+labels: ["corrección"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por ayudar a que la comparativa sea fiel a los programas. Si has llegado desde la web, el partido y el tema ya están rellenados.
+        La referencia es siempre el **programa oficial en PDF** ([ver los programas](https://github.com/omirete/comparativa-29n/tree/main/programas-electorales)). El número de página es el que muestra el visor de PDF.
+  - type: input
+    id: partido
+    attributes:
+      label: Partido
+      placeholder: "Ej.: Partido Popular"
+    validations:
+      required: true
+  - type: input
+    id: tema
+    attributes:
+      label: Tema
+      placeholder: "Ej.: Vivienda"
+    validations:
+      required: true
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: Tipo de problema
+      options:
+        - El resumen no refleja bien lo que dice el programa
+        - La página citada no es la correcta
+        - Falta una propuesta importante del programa
+        - La propuesta no está en el programa
+        - Otro
+    validations:
+      required: true
+  - type: textarea
+    id: texto_web
+    attributes:
+      label: Texto actual en la web
+      description: Copia la propuesta tal como aparece en la comparativa (si aplica).
+  - type: input
+    id: pagina
+    attributes:
+      label: Página del PDF donde está lo correcto
+      placeholder: "Ej.: 43"
+    validations:
+      required: true
+  - type: textarea
+    id: correccion
+    attributes:
+      label: Qué dice el programa y corrección propuesta
+      description: Cita brevemente el programa y propón el texto corregido.
+    validations:
+      required: true
+  - type: checkboxes
+    id: neutralidad
+    attributes:
+      label: Criterios
+      options:
+        - label: Mi propuesta de texto es neutra (sin valoraciones) y se basa solo en el programa oficial.
+          required: true
