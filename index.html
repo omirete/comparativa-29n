@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comparativa de programas electorales · Elecciones generales 29N 2026</title>
+<meta name="description" content="Comparativa neutral de las propuestas de los programas electorales oficiales para las elecciones generales del 29 de noviembre de 2026, con enlace a la página exacta de cada programa.">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="site-header">
+  <div class="wrap">
+    <p class="eyebrow">Elecciones generales · 29 de noviembre de 2026</p>
+    <h1>¿Qué propone cada partido?</h1>
+    <p class="lede">Propuestas extraídas de los programas electorales oficiales, ordenadas por tema. Cada propuesta enlaza a la página del programa de la que procede para que puedas comprobarla.</p>
+  </div>
+</header>
+
+<nav class="tabs wrap" aria-label="Modo de consulta">
+  <button class="tab" data-view="tema" aria-pressed="true">Por tema</button>
+  <button class="tab" data-view="partido" aria-pressed="false">Por partido</button>
+  <button class="tab" data-view="buscar" aria-pressed="false">Buscar</button>
+  <button class="tab" data-view="metodo" aria-pressed="false">Metodología</button>
+</nav>
+
+<main id="contenido" class="wrap">
+
+  <section id="view-tema" class="view">
+    <div class="controls">
+      <label class="field">
+        <span>Tema</span>
+        <select id="sel-tema"></select>
+      </label>
+      <fieldset class="field parties-filter">
+        <legend>Partidos a comparar</legend>
+        <div id="chk-partidos" class="chips"></div>
+      </fieldset>
+      <label class="field">
+        <span>Orden de los partidos</span>
+        <select id="sel-orden">
+          <option value="aleatorio">Aleatorio (cambia en cada visita)</option>
+          <option value="alfabetico">Alfabético</option>
+        </select>
+      </label>
+    </div>
+    <p id="tema-desc" class="hint"></p>
+    <div id="grid-tema" class="grid"></div>
+  </section>
+
+  <section id="view-partido" class="view" hidden>
+    <div class="controls">
+      <label class="field">
+        <span>Partido</span>
+        <select id="sel-partido"></select>
+      </label>
+    </div>
+    <div id="ficha-partido"></div>
+  </section>
+
+  <section id="view-buscar" class="view" hidden>
+    <div class="controls">
+      <label class="field grow">
+        <span>Buscar en todas las propuestas</span>
+        <input id="q" type="search" placeholder="Ej.: alquiler, nuclear, jornada, OTAN…" autocomplete="off">
+      </label>
+    </div>
+    <p id="q-count" class="hint" aria-live="polite"></p>
+    <div id="q-results"></div>
+  </section>
+
+  <section id="view-metodo" class="view prose" hidden>
+    <h2>Cómo se ha hecho esta comparativa</h2>
+    <p><strong>Fuente única:</strong> los programas electorales oficiales en PDF incluidos en este repositorio (carpeta <code>programas-electorales/</code>). No se ha usado ninguna otra fuente para describir las propuestas: ni declaraciones, ni prensa, ni encuestas.</p>
+    <h3>Criterios para que sea objetiva</h3>
+    <ul>
+      <li><strong>Mismos temas para todos.</strong> Se han fijado once temas comunes antes de leer los programas, y se han buscado las propuestas de cada partido en cada uno de ellos.</li>
+      <li><strong>Extensión similar.</strong> Hasta siete propuestas por partido y tema, priorizando las medidas concretas, medibles o que el propio programa destaca, frente a declaraciones genéricas. Si un programa dedica menos espacio a un tema, se recogen menos propuestas.</li>
+      <li><strong>Redacción neutra.</strong> Cada propuesta se resume en una frase breve, fiel al programa y sin adjetivos valorativos. Cuando se conserva una expresión propia del partido, aparece entre comillas «así».</li>
+      <li><strong>Sin valoraciones.</strong> No se califica ninguna propuesta (ni viabilidad, ni coste, ni ideología) y no se usa ningún color asociado a los partidos.</li>
+      <li><strong>Orden aleatorio.</strong> Por defecto, los partidos aparecen en un orden aleatorio distinto en cada visita para que ninguno ocupe siempre el primer lugar.</li>
+      <li><strong>Verificable.</strong> Cada propuesta indica la página del PDF de la que procede y enlaza directamente a ella.</li>
+      <li><strong>Huecos visibles.</strong> Si un programa no trata un tema, se indica expresamente en lugar de rellenarlo.</li>
+    </ul>
+    <h3>Limitaciones</h3>
+    <ul>
+      <li>Es una selección: los programas contienen muchas más medidas (entre 31 y 141 páginas). Para la visión completa, consulta el programa enlazado.</li>
+      <li>El número de página es el de la página del archivo PDF (la que muestra tu visor), que puede no coincidir con el número impreso en el documento.</li>
+      <li>Solo se han analizado los programas incluidos en el repositorio. Otras candidaturas que concurren el 29N no aparecen porque su programa no está aquí.</li>
+      <li>Algunas páginas de los programas son solo imagen (portadas y separadores). Se han revisado con reconocimiento óptico de caracteres y no contienen propuestas.</li>
+    </ul>
+    <h3>Programas analizados</h3>
+    <div id="lista-programas"></div>
+    <p class="hint">¿Has encontrado un error o una propuesta mal resumida? Abre una incidencia en el repositorio indicando el partido, el tema y la página.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Proyecto sin afiliación política. Los textos son resúmenes; la referencia válida es siempre el programa original de cada partido.</p>
+  </div>
+</footer>
+
+<script src="data/propuestas.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
