@@ -20,7 +20,10 @@ body{margin:0;background:var(--bg);color:var(--ink);font-size:16px;line-height:1
 h1{margin:0 0 10px;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15}
 .lede{margin:0;max-width:62ch;color:var(--muted);font-size:1.05rem}
 .header-links{margin:12px 0 0;font-size:.92rem}
-.header-links a,.site-footer a,.prose a{color:var(--accent)}
+/* Todos los enlaces con el color de acento, también los ya visitados, para que tengan buen contraste en modo claro y oscuro */
+a,a:visited{color:var(--accent)}
+a:hover{text-decoration-thickness:2px}
+.card .src a,.card .src a:visited{color:var(--muted)}
 
 .tabs{display:flex;gap:6px;flex-wrap:wrap;padding-top:18px;padding-bottom:6px}
 .tab{appearance:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:9px 16px;border-radius:999px;font:inherit;cursor:pointer}
@@ -48,7 +51,6 @@ select,input[type=search]{font:inherit;color:var(--ink);background:var(--surface
 .pg:hover{border-bottom-style:solid}
 .empty{color:var(--muted);font-style:italic;font-size:.92rem}
 .card .src{margin-top:auto;padding-top:12px;font-size:.8rem}
-.card .src a{color:var(--muted)}
 
 .ficha-head{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;margin-bottom:14px}
 .ficha-head h2{margin:0 0 4px}
